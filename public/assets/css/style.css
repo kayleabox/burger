@@ -1,0 +1,39 @@
+body{
+    background-color: #ededed;
+    margin:0px;
+}
+
+.container{
+    max-width: 1000px;
+    margin-top:30px;
+}
+
+.is-patty{
+    background-color: #591700;
+    color: white;
+    border-radius: 50px;
+}
+
+.is-devoured{
+    opacity: .6;
+}
+
+.top-bun{
+    border-top-left-radius: 170px;
+    border-top-right-radius: 170px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.bottom-bun{
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.is-bun{
+    background-color: #f9ca6b;
+}
+
+.is-cheese{
+    background-color:#ffc402;
+}

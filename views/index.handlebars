@@ -1,0 +1,144 @@
+<!-- page header -->
+<div class="container">
+  <div class="tile is-ancestor">
+    <div class="tile is-vertical is-12">
+      <div class="tile">
+        <div class="tile is-parent is-vertical">
+          <article class="tile is-child notification is-primary">
+            <div class="title has-text-centered"><strong> Burgers!!!! </strong></div>
+          </article>
+          <article class="tile is-child">
+          <div class="tile is-child is-12 has-text-centered">
+            <img style="width:80px;" src="https://media.giphy.com/media/zNsrnGVpCJMOc/giphy_s.gif">
+            <img style="width:80px;" src="https://media.giphy.com/media/zNsrnGVpCJMOc/giphy.gif">
+            <img style="width:80px;" src="https://media.giphy.com/media/zNsrnGVpCJMOc/giphy_s.gif">
+            <img style="width:80px;" src="https://media.giphy.com/media/zNsrnGVpCJMOc/giphy.gif">
+            <img style="width:80px;" src="https://media.giphy.com/media/zNsrnGVpCJMOc/giphy_s.gif">
+            <img style="width:80px;" src="https://media.giphy.com/media/zNsrnGVpCJMOc/giphy.gif">
+            <img style="width:80px;" src="https://media.giphy.com/media/zNsrnGVpCJMOc/giphy_s.gif">
+            <img style="width:80px;" src="https://media.giphy.com/media/zNsrnGVpCJMOc/giphy.gif">
+            <img style="width:80px;" src="https://media.giphy.com/media/zNsrnGVpCJMOc/giphy_s.gif">
+            <img style="width:80px;" src="https://media.giphy.com/media/zNsrnGVpCJMOc/giphy.gif">
+            <img style="width:80px;" src="https://media.giphy.com/media/zNsrnGVpCJMOc/giphy_s.gif">
+          </div>
+
+        </article>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div class="tile is-ancestor">
+  <div class="tile is-vertical is-6">
+    <div class="tile">
+      <div class="tile is-parent is-vertical">
+        
+        <article class="tile is-child notification is-bun top-bun">
+          <p class="title is-4 has-text-centered"><strong> Uneaten Burgers </strong></p>
+        </article>
+        
+        <article class="tile is-child">
+          <ul>
+            {{#each burgers}} {{#unless this.devoured}}
+            <li>
+
+              <article class="tile is-child is-12 notification is-patty">
+                {{this.burger}} 
+                {{this.customer}}
+              </article>
+              
+              <form action="/{{this.id}}?_method=PUT" method="POST">
+                <input type="hidden" name="devoured" value="1">
+                <button type="submit" class=" tile is-child is-12 button is-success is-small">EAT ME!</button>
+              </form>
+
+              <article class="tile is-child is-12">
+                {{> burgers/delete}}
+              </article>
+
+            </li>
+            {{/unless}} {{/each}}
+          </ul>
+
+        </article>
+        <article class="tile is-child notification is-bun bottom-bun">
+          <p class="title is-4 has-text-centered">Don't see your burger... order it!</p>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <div class="tile is-vertical is-6">
+    <div class="tile">
+      <div class="tile is-parent is-vertical is-devoured">
+        <article class="tile is-child notification is-bun top-bun">
+          <p class="title is-4 has-text-centered"><strong> Devoured Burgers </strong></p>
+        </article>
+
+        <article class="tile is-child">
+          <ul>
+            {{#each burgers}} {{#if this.devoured}}
+            <li>
+              <article class="tile is-child is-12 notification is-patty">
+                {{this.burger}} 
+                {{this.customer}}
+              </article>
+              <form action="/{{this.id}}?_method=PUT" method="POST">
+                <input type="hidden" name="devoured" value="0">
+                <button type="submit" class="tile is-child is-12 button is-success is-small">AGAIN!</button>
+              </form>
+              <article class="tile is-child is-12">
+                {{> burgers/delete}}
+              </article>
+ 
+            </li>
+            {{/if}} {{/each}}
+          </ul>
+        </article>
+
+        <article class="tile is-child notification is-bun bottom-bun">
+          <p class="title is-4 has-text-centered">More burgers!!!</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="tile is-vertical is-12">
+    <div class="tile">
+      <div class="tile is-parent is-vertical">
+        <article class="tile is-child notification is-warning">
+          <p class="title is-4 has-text-centered"><strong> Order a Burger </strong></p>
+        </article>
+        <article class="tile is-child notification is-warning">
+          <form class="create-update-form" action="/" method="POST">
+
+            <div class="tile is-parent is-12 form-group">
+              <article class="tile is-child is-1">
+                <label for="ca">Burger:</label>
+              </article>
+              <article class="tile is-child is-11">
+                <input type="text" class="input is-primary is-small" id="ca" name="burger">
+              </article>
+            </div>
+
+            <div class="tile is-parent is-12 form-group">
+              <article class="tile is-child is-1">
+                <label for="cust">Customer:</label>
+              </article>
+              <article class="tile is-child is-11">
+                <input type="text" class="input is-primary is-small" id="cust" name="customer">
+              </article>
+            </div>  
+            <div class="has-text-centered">
+            <button type="submit" class="button is-primary is-small" >Order</button>
+            </div>
+          </form>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
