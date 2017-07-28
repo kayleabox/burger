@@ -34,7 +34,7 @@
     <div class="tile">
       <div class="tile is-parent is-vertical">
         
-        <article class="tile is-child notification is-bun top-bun">
+        <article class="tile is-child notification is-bun top-bun shadow">
           <p class="title is-4 has-text-centered"><strong> Uneaten Burgers </strong></p>
         </article>
         
@@ -43,17 +43,16 @@
             {{#each burgers}} {{#unless this.devoured}}
             <li>
 
-              <article class="tile is-child is-12 notification is-patty">
-                {{this.burger}} 
-                {{this.customer}}
+              <article class="tile is-child is-12 notification is-patty shadow">
+                <p>{{this.burger}} - {{this.customer}}</p>
               </article>
               
               <form action="/{{this.id}}?_method=PUT" method="POST">
                 <input type="hidden" name="devoured" value="1">
-                <button type="submit" class=" tile is-child is-12 button is-success is-small">EAT ME!</button>
+                <button type="submit" class=" tile is-child is-12 button is-success is-small shadow">EAT ME!</button>
               </form>
 
-              <article class="tile is-child is-12">
+              <article class="tile is-child is-12 shadow">
                 {{> burgers/delete}}
               </article>
 
@@ -62,7 +61,7 @@
           </ul>
 
         </article>
-        <article class="tile is-child notification is-bun bottom-bun">
+        <article class="tile is-child notification is-bun bottom-bun shadow">
           <p class="title is-4 has-text-centered">Don't see your burger... order it!</p>
         </article>
       </div>
@@ -72,7 +71,7 @@
   <div class="tile is-vertical is-6">
     <div class="tile">
       <div class="tile is-parent is-vertical is-devoured">
-        <article class="tile is-child notification is-bun top-bun">
+        <article class="tile is-child notification is-bun top-bun shadow">
           <p class="title is-4 has-text-centered"><strong> Devoured Burgers </strong></p>
         </article>
 
@@ -80,15 +79,14 @@
           <ul>
             {{#each burgers}} {{#if this.devoured}}
             <li>
-              <article class="tile is-child is-12 notification is-patty">
-                {{this.burger}} 
-                {{this.customer}}
+              <article class="tile is-child is-12 notification is-patty shadow">
+                <p>{{this.burger}} - {{this.customer}}</p>
               </article>
               <form action="/{{this.id}}?_method=PUT" method="POST">
                 <input type="hidden" name="devoured" value="0">
-                <button type="submit" class="tile is-child is-12 button is-success is-small">AGAIN!</button>
+                <button type="submit" class="tile is-child is-12 button is-success is-small shadow">AGAIN!</button>
               </form>
-              <article class="tile is-child is-12">
+              <article class="tile is-child is-12 shadow">
                 {{> burgers/delete}}
               </article>
  
@@ -97,7 +95,7 @@
           </ul>
         </article>
 
-        <article class="tile is-child notification is-bun bottom-bun">
+        <article class="tile is-child notification is-bun bottom-bun shadow">
           <p class="title is-4 has-text-centered">More burgers!!!</p>
         </article>
       </div>
